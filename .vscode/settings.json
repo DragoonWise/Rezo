@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "askForPassword": false,
+            "database": "rezo",
+            "dialect": "MySQL",
+            "name": "rezo",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
+}
