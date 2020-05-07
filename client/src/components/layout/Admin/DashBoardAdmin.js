@@ -15,7 +15,9 @@ const DashBoardAdmin = () => {
 
     return (
         <div className='col-12 col-md-9 bg-light'>
-           <img src='/images/Dashboard.jpg' alt='Dashboard'/>
+            <h1>DashBoard Admin</h1>
+
+            <img src='/images/Dashboard.jpg' alt='Dashboard' />
         </div>
     );
 };

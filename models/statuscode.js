@@ -1,26 +1,16 @@
 /* jshint indent: 2 */
 
-module.exports = function (sequelize, DataTypes) {
-  return sequelize.define('users', {
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('statuscode', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    Login: {
+    Label: {
       type: DataTypes.STRING(255),
       allowNull: false
-    },
-    Password: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    IsAdmin: {
-      type: DataTypes.INTEGER(1),
-      allowNull: false,
-      defaultValue: '0',
-      readOnly: true
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -37,8 +27,6 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'users',
-    paranoid:true
+    tableName: 'statuscode'
   });
 };
-

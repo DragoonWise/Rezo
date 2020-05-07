@@ -11,7 +11,7 @@ const LoginForm = props => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push('/');
+      props.history.goBack();//push('/');
     }
 
     if (error === 'Invalid Credentials') {

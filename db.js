@@ -37,7 +37,7 @@ exports.fixtures = function(data,done) {
     async.each(data.tables[name], function(row, cb) {
       var keys = Object.keys(row)
         , values = keys.map(function(key) { return "'" + row[key] + "'" })
-  pool.query('INSERT INTO ' + name + ' (' + keys.join(',') + ') VALUES (' + values.join(',') + ')', cb)
+  pool.query('INSERT IGNORE INTO ' + name + ' (' + keys.join(',') + ') VALUES (' + values.join(',') + ')', cb)
     }, cb)
   }, done)
 }

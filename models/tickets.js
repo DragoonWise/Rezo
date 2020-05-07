@@ -1,26 +1,36 @@
 /* jshint indent: 2 */
 
-module.exports = function (sequelize, DataTypes) {
-  return sequelize.define('users', {
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('tickets', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    Login: {
+    StatusCode: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+      references: {
+        model: 'statuscode',
+        key: 'id'
+      }
+    },
+    Label: {
       type: DataTypes.STRING(255),
       allowNull: false
     },
-    Password: {
-      type: DataTypes.STRING(255),
-      allowNull: false
+    closed_at: {
+      type: DataTypes.DATE,
+      allowNull: true
     },
-    IsAdmin: {
-      type: DataTypes.INTEGER(1),
-      allowNull: false,
-      defaultValue: '0',
-      readOnly: true
+    Customer_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+      references: {
+        model: 'customers',
+        key: 'id'
+      }
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -37,8 +47,6 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'users',
-    paranoid:true
+    tableName: 'tickets'
   });
 };
-

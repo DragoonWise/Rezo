@@ -26,9 +26,12 @@ const MenuAdmin = () => {
                                 <Link className="nav-link" to="/">DashBoard <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/AdminTakeCall">Prendre un Appel</a>
+                                <a className="nav-link" href="/Admin/UsersList">Gestion des Utilisateurs</a>
                             </li>
-                            
+                            <li className="nav-item">
+                                <a className="nav-link" href="/Admin/TakeCall">Prendre un Appel</a>
+                            </li>
+
                         </ul>
                     </div>
                 </nav>

@@ -38,14 +38,14 @@ const Navbar = () => {
   );
 
   return (
-    <div className='navbar bg-primary row'>
+    <nav className='navbar bg-primary row'>
       <div className='col-4 col-md-3 col-lg-2'>
         <Link to='/'>
           <img src="/images/rezo.png" alt='Rezo' />
         </Link>
       </div>
       <ul className='col'>{isAuthenticated ? authLinks : guestLinks}</ul>
-    </div>
+    </nav>
   );
 };
 

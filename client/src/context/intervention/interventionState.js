@@ -6,26 +6,33 @@ import interventionReducer from './interventionReducer';
 import { INTERVENTION_SUCCESS, INTERVENTION_FAIL } from '../types';
 import AuthContext from '../auth/authContext';
 const InterventionState = props => {
+    const authContext = useContext(AuthContext);
+    const { user, loadUser } = authContext;
+    // useEffect(() => {
+    //     loadUser();
+    //     // eslint-disable-next-line
+    // }, []);
+
     const initialState = {
-        intervention: null
+        intervention: {
+            startDate : Date.now()
+        }
     };
     const [state, dispatch] = useReducer(interventionReducer, initialState);
     useEffect(() => {
         //Init
-        createIntervention();
+        console.log('Load User')
+        loadUser();
+        console.log('Wait User')
+        // while (user === undefined);
+        console.log('Create Intervention')
+        //  createIntervention();
         return () => {
             // Close
 
         };
-    }, []);
-
-    const authContext = useContext(AuthContext);
-    const { user, loadUser } = authContext;
-    useEffect(() => {
-        loadUser();
         // eslint-disable-next-line
-      }, []);
-      
+    }, [loaduser]);
 
     // Create Intervention
     const createIntervention = async () => {
@@ -34,8 +41,9 @@ const InterventionState = props => {
                 'Content-Type': 'application/json'
             }
         };
+        console.log(user);
         const formData = {
-            User_Id: user.Id
+            User_Id: user.id
         };
 
         try {

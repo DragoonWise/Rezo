@@ -1,20 +1,15 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
 
 const TakeCall = () => {
     const authContext = useContext(AuthContext);
 
-    const { user, loadUser } = authContext;
-
-    useEffect(() => {
-        loadUser();
-        // eslint-disable-next-line
-    }, []);
+    const { user } = authContext;
 
     const takeCallFunction = (e) => {
 
     }
-    const tmp = 'col-12 '+(user.IsAdmin ? 'col-md-9':'')+'text-center bg-light row';
+    const tmp = 'col-12 '+((user && user.IsAdmin) ? 'col-md-9 ':'')+'text-center bg-light row';
     return (
         <div className={tmp} >
             <div className='col-12 mb-2'>
